@@ -5,4 +5,5 @@
     <string name="fragment_1_text">Fragment 1</string>
     <string name="fragment_2_text">Fragment 2</string>
     <string name="fragment_3_text">Fragment 3</string>
+    <string name="listviewheader">ListViewHeader</string>
 </resources>

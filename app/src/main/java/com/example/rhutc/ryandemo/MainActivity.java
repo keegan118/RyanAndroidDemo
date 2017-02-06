@@ -4,12 +4,14 @@ import android.content.Intent;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.BaseAdapter;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
 
     private ImageButton bt1, bt2, bt3;
     private ImageButton topLeftButton;
@@ -45,9 +47,14 @@ public class MainActivity extends AppCompatActivity {
         bt3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(v.getContext(), "Button 3", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(v.getContext(), ListViewActivity.class);
-                startActivity(intent);
+
+                // Using the methods that we made in BaseActivity because this class extends it
+                toastShort("Button 3");
+                toActivity(ListViewActivity.class);
+
+                // Old way to do it
+                //Intent intent = new Intent(v.getContext(), ListViewActivity.class);
+                //startActivity(intent);
             }
         });
         topLeftButton.setOnClickListener(new View.OnClickListener() {
@@ -58,5 +65,9 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    public void onClick(View v){
+        Toast.makeText(this,"Button 2 was Clicked", Toast.LENGTH_SHORT).show();
     }
 }
