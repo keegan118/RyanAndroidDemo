@@ -43,8 +43,7 @@ public class MainActivity extends BaseActivity {
             public void onClick(View v) {
                 Toast.makeText(v.getContext(), "Button 2", Toast.LENGTH_SHORT).show();
             }
-        });
-        bt3.setOnClickListener(new View.OnClickListener() {
+        });        bt3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 

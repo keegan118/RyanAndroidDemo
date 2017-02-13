@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:androi="http://schemas.android.com/apk/res/android"
+    xmlns:android="http://schemas.android.com/apk/res-auto"
+    androi:shape="rectangle">
+
+    <!-- Rounded Corner -->
+    <corners androi:radius="10dp"/>
+
+    <solid androi:color="@android:color/holo_red_dark"/>
+
+</shape>

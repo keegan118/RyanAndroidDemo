@@ -31,22 +31,10 @@ public class ListViewActivity extends AppCompatActivity implements AdapterView.O
     }
 
     private void createFakeResult() {
-        result.add("A");
-        result.add("B");
+        result.add("My name is Ryan.");
+        result.add("ライアンといます。");
         result.add("C");
         result.add("D");
-        result.add("E");
-        result.add("F");
-        result.add("G");
-        result.add("H");
-        result.add("I");
-        result.add("J");
-        result.add("K");
-        result.add("L");
-        result.add("M");
-        result.add("N");
-        result.add("O");
-        result.add("P");
     }
 
     private void initialView() {

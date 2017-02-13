@@ -5,24 +5,22 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.rhutc.ryandemo.R;
+import com.example.rhutc.ryandemo.util.UtilDensity;
 
 import java.util.ArrayList;
 
-/**
- * Created by rhutc on 1/25/2017.
- */
-
 public class ListViewAdapter extends BaseAdapter {
 
-    private Context context;
+    private Context mContext;
     private LayoutInflater mInflater;
     private ArrayList<String> listResult;
 
     public ListViewAdapter(Context context, ArrayList<String> listResult) {
-        this.context = context;
+        this.mContext = context;
         mInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         this.listResult = listResult;
     }
@@ -60,15 +58,24 @@ public class ListViewAdapter extends BaseAdapter {
         } else {
             holder = (ViewHolder) convertView.getTag();
         }
+
         holder.textView1.setText(String.valueOf(position));
-        holder.textView3.setText(String.valueOf(position));
         holder.textView2.setText(listResult.get(position));
+        holder.textView3.setText(String.valueOf(position));
         if (position % 2 == 0) {
             holder.textView1.setVisibility(View.VISIBLE);
+            holder.textView2.setBackgroundResource(R.drawable.chat_from_bg);
+            holder.lp.setMargins(UtilDensity.dp2px(mContext,50),0,0,0);
+            holder.lp.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
             holder.textView3.setVisibility(View.INVISIBLE);
+            holder.textView2.setLayoutParams(holder.lp);
         } else {
             holder.textView1.setVisibility(View.INVISIBLE);
+            holder.textView2.setBackgroundResource(R.drawable.chat_to_bg);
+            holder.lp.setMargins(0,0,UtilDensity.dp2px(mContext,50),0);
+            holder.lp.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
             holder.textView3.setVisibility(View.VISIBLE);
+            holder.textView2.setLayoutParams(holder.lp);
         }
 
 //        View rowView = mInflater.inflate(R.layout.list_item, parent, false);
@@ -90,4 +97,6 @@ class ViewHolder {
     TextView textView1;
     TextView textView2;
     TextView textView3;
+    RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(
+            RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
 }
