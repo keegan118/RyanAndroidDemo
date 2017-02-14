@@ -16,9 +16,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ListViewActivity"></activity>
-        <activity android:name=".ViewPagerActivity"></activity>
-        <activity android:name=".BaseActivity"></activity>
+        <activity android:name=".ListViewActivity"/>
+        <activity android:name=".ViewPagerActivity"/>
+        <activity android:name=".BaseActivity"/>
+        <activity android:name=".DialogActivity"/>
     </application>
 
 </manifest>

@@ -11,22 +11,31 @@ import android.widget.BaseAdapter;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+
 public class MainActivity extends BaseActivity {
 
-    private ImageButton bt1, bt2, bt3;
+    private ImageButton bt1, bt3;
+//    private ImageButton bt2;
     private ImageButton topLeftButton;
+
+    @OnClick(R.id.bt2)
+    public void button2Click(){
+        toActivity(DialogActivity.class);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initialView();
-        initalListener();
+        ButterKnife.bind(this);
     }
 
     private void initialView(){
         bt1 = (ImageButton)findViewById(R.id.bt1);
-        bt2 = (ImageButton)findViewById(R.id.bt2);
+//        bt2 = (ImageButton)findViewById(R.id.bt2);
         bt3 = (ImageButton)findViewById(R.id.bt3);
         topLeftButton = (ImageButton)findViewById(R.id.topLeftButton);
     }
@@ -38,12 +47,15 @@ public class MainActivity extends BaseActivity {
                 Toast.makeText(v.getContext(), "Button 1", Toast.LENGTH_SHORT).show();
             }
         });
-        bt2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(v.getContext(), "Button 2", Toast.LENGTH_SHORT).show();
-            }
-        });        bt3.setOnClickListener(new View.OnClickListener() {
+
+//        bt2.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Toast.makeText(v.getContext(), "Button 2", Toast.LENGTH_SHORT).show();
+//            }
+//        });
+
+        bt3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
