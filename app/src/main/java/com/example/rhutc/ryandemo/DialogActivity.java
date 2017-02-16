@@ -2,11 +2,14 @@ package com.example.rhutc.ryandemo;
 
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
 import android.support.v7.app.AlertDialog;
 import android.widget.EditText;
 import android.widget.RadioGroup;
+
+import com.example.rhutc.ryandemo.dialog.CustomDialog;
 
 import java.util.ArrayList;
 
@@ -46,9 +49,24 @@ public class DialogActivity extends BaseActivity {
                 inputDialog();
                 break;
             case R.id.rb8:
+                customDialog();
                 break;
             default:
         }
+    }
+
+    private void customDialog() {
+        CustomDialog dialog = new CustomDialog(this, new CustomDialog.ICustomDialogEventListener() {
+            @Override
+            public void onClickListener() {
+                toastShort("OK was selected");
+                Intent i = new Intent();
+                i.putExtra("message", "ViewPager");
+                setResult(RESULT_OK, i);
+                finish();
+            }
+        });
+        dialog.show();
     }
 
     private void inputDialog() {
@@ -128,7 +146,7 @@ public class DialogActivity extends BaseActivity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 String str = "";
-                for (String s : items) {
+                for (String s : choices) {
                     str = str + s + " ";
                 }
                 toastShort(str);

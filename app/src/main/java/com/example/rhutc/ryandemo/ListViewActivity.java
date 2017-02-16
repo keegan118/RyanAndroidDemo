@@ -60,4 +60,9 @@ public class ListViewActivity extends AppCompatActivity implements AdapterView.O
         Toast.makeText(this, "listView was clicked at position: " + position, Toast.LENGTH_LONG).show();
         UtilLog.logD("testListViewActivity", String.valueOf(position));
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+    }
 }
