@@ -92,7 +92,6 @@ public class MainActivity extends BaseActivity {
                 b.putSerializable("book", book);
 
                 i.putExtras(b);
-                startActivity(i);
                 startActivityForResult(i, 1);
 
             }

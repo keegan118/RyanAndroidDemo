@@ -1,5 +1,7 @@
 package com.example.rhutc.ryandemo;
 
+import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -12,6 +14,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.rhutc.ryandemo.adapter.ListViewAdapter;
+import com.example.rhutc.ryandemo.adapter.ViewPagerAdapter;
+import com.example.rhutc.ryandemo.fragment.ContentFragment;
+import com.example.rhutc.ryandemo.fragment.HistoryFragment;
+import com.example.rhutc.ryandemo.fragment.LoginFragment;
 import com.example.rhutc.ryandemo.util.UtilLog;
 
 import java.util.ArrayList;
@@ -39,9 +45,19 @@ public class ListViewActivity extends AppCompatActivity implements AdapterView.O
 
     private void initialView() {
         listView = (ListView) findViewById(R.id.list_view);
-        View v = getLayoutInflater().inflate(R.layout.list_view_header, null);
+        View view = getLayoutInflater().inflate(R.layout.list_view_header, null);
 
-        LinearLayout lvh = (LinearLayout) v.findViewById(R.id.list_view_header);
+        ViewPager vp = (ViewPager)view.findViewById(R.id.view_pager_2);
+        ArrayList<Fragment> f = new ArrayList<>();
+        f.add(new LoginFragment());
+        f.add(new ContentFragment());
+        f.add(new HistoryFragment());
+        ViewPagerAdapter vpa = new ViewPagerAdapter(this.getSupportFragmentManager());
+        vpa.setFragments(f);
+        vp.setAdapter(vpa);
+
+        LinearLayout lvh = (LinearLayout) view.findViewById(R.id.list_view_header);
+
         ListViewAdapter listViewAdapter = new ListViewAdapter(this, result);
         listView.addHeaderView(lvh);
 
