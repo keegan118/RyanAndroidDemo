@@ -21,6 +21,7 @@ public class MainActivity extends BaseActivity {
     private ImageButton bt1, bt3;
     private ImageButton bt2;
     private ImageButton topLeftButton;
+    private ImageButton topRightButton;
 
     @OnClick(R.id.bt2)
     public void button2Click(){
@@ -54,6 +55,7 @@ public class MainActivity extends BaseActivity {
 //        bt2 = (ImageButton)findViewById(R.id.bt2);
         bt3 = (ImageButton)findViewById(R.id.bt3);
         topLeftButton = (ImageButton)findViewById(R.id.topLeftButton);
+        topRightButton = (ImageButton)findViewById(R.id.topRightButton);
     }
 
     @Override
@@ -120,6 +122,14 @@ public class MainActivity extends BaseActivity {
 //                startActivity(intent);
 //                Intent i = new Intent(v.getContext(), ViewPagerActivity.class);
 //                startActivityForResult(i, 3);
+            }
+        });
+
+        topRightButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), LaunchModeActivityA.class);
+                startActivity(intent);
             }
         });
     }
