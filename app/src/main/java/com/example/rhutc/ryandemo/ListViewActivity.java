@@ -15,9 +15,14 @@ import android.widget.Toast;
 
 import com.example.rhutc.ryandemo.adapter.ListViewAdapter;
 import com.example.rhutc.ryandemo.adapter.ViewPagerAdapter;
-import com.example.rhutc.ryandemo.fragment.ContentFragment;
-import com.example.rhutc.ryandemo.fragment.HistoryFragment;
-import com.example.rhutc.ryandemo.fragment.LoginFragment;
+import com.example.rhutc.ryandemo.fragment.Fragment1;
+import com.example.rhutc.ryandemo.fragment.Fragment2;
+import com.example.rhutc.ryandemo.fragment.Fragment3;
+import com.example.rhutc.ryandemo.fragment.Fragment4;
+import com.example.rhutc.ryandemo.fragment.Fragment5;
+import com.example.rhutc.ryandemo.fragment.Fragment6;
+import com.example.rhutc.ryandemo.fragment.Fragment7;
+import com.example.rhutc.ryandemo.fragment.Fragment8;
 import com.example.rhutc.ryandemo.util.UtilLog;
 
 import java.util.ArrayList;
@@ -39,8 +44,13 @@ public class ListViewActivity extends AppCompatActivity implements AdapterView.O
     private void createFakeResult() {
         result.add("My name is Ryan.");
         result.add("ライアンといます。");
-        result.add("C");
-        result.add("D");
+        result.add("This is some more words.");
+        result.add("And some more.");
+        result.add("Soon the words will stop.");
+        result.add("But not before");
+        result.add("We have enough words");
+        result.add("To give the ListView");
+        result.add("Some room to scroll with.");
     }
 
     private void initialView() {
@@ -49,9 +59,14 @@ public class ListViewActivity extends AppCompatActivity implements AdapterView.O
 
         ViewPager vp = (ViewPager)view.findViewById(R.id.view_pager_2);
         ArrayList<Fragment> f = new ArrayList<>();
-        f.add(new LoginFragment());
-        f.add(new ContentFragment());
-        f.add(new HistoryFragment());
+        f.add(new Fragment1());
+        f.add(new Fragment2());
+        f.add(new Fragment3());
+        f.add(new Fragment4());
+        f.add(new Fragment5());
+        f.add(new Fragment6());
+        f.add(new Fragment7());
+        f.add(new Fragment8());
         ViewPagerAdapter vpa = new ViewPagerAdapter(this.getSupportFragmentManager());
         vpa.setFragments(f);
         vp.setAdapter(vpa);
