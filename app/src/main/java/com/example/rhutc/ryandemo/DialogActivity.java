@@ -1,9 +1,12 @@
 package com.example.rhutc.ryandemo;
 
+import android.app.Notification;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.annotation.IdRes;
 import android.support.v7.app.AlertDialog;
 import android.widget.EditText;
@@ -20,6 +23,22 @@ import butterknife.OnClick;
 public class DialogActivity extends BaseActivity {
 
     private int checkedID;
+    private final int DIALOG = 12345;
+
+    Handler mHandler = new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            switch (msg.what){
+                case DIALOG:
+                    Bundle bundle = msg.getData();
+                    String string = bundle.getString("msg");
+                    toastShort("Dialog Message: " + string);
+                    break;
+                default:
+            }
+            super.handleMessage(msg);
+        }
+    };
 
     @BindView(R.id.radio_group)
     RadioGroup rg;
@@ -104,6 +123,14 @@ public class DialogActivity extends BaseActivity {
                         e.printStackTrace();
                     }
                 }
+                Bundle bundle = new Bundle();
+                bundle.putString("msg", "Download Success");
+                Message msg = Message.obtain();
+                msg.what = DIALOG;
+                msg.setData(bundle);
+                mHandler.sendMessage(msg);
+                progressDialog.cancel();
+
             }
         }).start();
     }

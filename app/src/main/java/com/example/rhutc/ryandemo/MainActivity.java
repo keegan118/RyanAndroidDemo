@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
@@ -23,6 +24,8 @@ public class MainActivity extends BaseActivity {
     private ImageButton topLeftButton;
     private ImageButton topRightButton;
 
+    private Button timer;
+
     @OnClick(R.id.bt2)
     public void button2Click(){
         // This way doesn't get a response from the DialogActivity
@@ -31,6 +34,12 @@ public class MainActivity extends BaseActivity {
         // This way gets a response from the DialogActivity
         Intent i = new Intent(this, DialogActivity.class);
         startActivityForResult(i, 2);
+    }
+
+    @OnClick(R.id.timer_button)
+    public void timerButtonClick(){
+        Intent i = new Intent(this, TimerActivity.class);
+        startActivity(i);
     }
 
     // Without Butterknife we must do this to set a listener

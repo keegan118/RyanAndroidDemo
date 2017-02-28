@@ -48,14 +48,13 @@
 
     </RelativeLayout>
 
-    <ListView
-        android:layout_below="@+id/title_bar"
-        android:layout_above="@+id/tool_bar"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/white">
-
-    </ListView>
+    <!--<ListView-->
+        <!--android:layout_below="@+id/title_bar"-->
+        <!--android:layout_above="@+id/tool_bar"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:background="@color/white">-->
+    <!--</ListView>-->
 
     <LinearLayout
         android:id="@+id/tool_bar"
@@ -91,5 +90,20 @@
             android:background="@color/white"/>
 
     </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/title_bar"
+        android:layout_above="@+id/tool_bar"
+        android:background="@color/white">
+
+        <Button
+            android:id="@+id/timer_button"
+            android:layout_width="100dp"
+            android:layout_height="60dp"
+            android:text="Timer"/>
+
+    </FrameLayout>
 
 </RelativeLayout>
