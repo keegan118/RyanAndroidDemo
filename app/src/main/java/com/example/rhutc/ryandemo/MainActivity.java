@@ -25,6 +25,8 @@ public class MainActivity extends BaseActivity {
     private ImageButton topRightButton;
 
     private Button timer;
+    private Button animation;
+
 
     @OnClick(R.id.bt2)
     public void button2Click(){
@@ -39,6 +41,12 @@ public class MainActivity extends BaseActivity {
     @OnClick(R.id.timer_button)
     public void timerButtonClick(){
         Intent i = new Intent(this, TimerActivity.class);
+        startActivity(i);
+    }
+
+    @OnClick(R.id.animation_button)
+    public void animationButtonClick(){
+        Intent i = new Intent(this, AnimationActivity.class);
         startActivity(i);
     }
 

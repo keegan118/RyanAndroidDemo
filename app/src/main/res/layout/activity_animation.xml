@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <Button
+            android:id="@+id/anm_alpha"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="Alpha"/>
+
+        <Button
+            android:id="@+id/anm_scale"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="Scale"/>
+
+        <Button
+            android:id="@+id/anm_rotation"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:textSize="10sp"
+            android:text="Rotation"/>
+
+        <Button
+            android:id="@+id/anm_transpose"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:textSize="8sp"
+            android:text="Transpose"/>
+
+        <Button
+            android:id="@+id/anm_set"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="Set"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/anm_textView"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:background="@color/colorPrimary"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_marginTop="100dp"
+        android:textSize="50sp"
+        android:text="@string/abc"/>
+
+</LinearLayout>
