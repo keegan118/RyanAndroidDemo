@@ -92,6 +92,7 @@
     </LinearLayout>
 
     <FrameLayout
+        android:id="@+id/main_fl"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/title_bar"
@@ -112,6 +113,14 @@
             android:textSize="12sp"
             android:layout_gravity="center_horizontal"
             android:text="Animation"/>
+
+        <Button
+            android:id="@+id/animator_button"
+            android:layout_width="100dp"
+            android:layout_height="60dp"
+            android:textSize="12sp"
+            android:layout_gravity="right"
+            android:text="Animator"/>
 
     </FrameLayout>
 

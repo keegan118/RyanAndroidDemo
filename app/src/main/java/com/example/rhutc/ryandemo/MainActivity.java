@@ -5,28 +5,40 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.GestureDetector;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.example.rhutc.ryandemo.bean.Book;
+import com.example.rhutc.ryandemo.util.UtilLog;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class MainActivity extends BaseActivity {
+public class MainActivity extends BaseActivity implements View.OnTouchListener {
 
     private ImageButton bt1, bt3;
     private ImageButton bt2;
     private ImageButton topLeftButton;
     private ImageButton topRightButton;
 
-    private Button timer;
-    private Button animation;
+    private GestureDetector mGestureDetector;
 
+    @BindView(R.id.main_fl)
+    FrameLayout fl;
+
+    @OnClick(R.id.animator_button)
+    public void animatorClick(){
+        Intent i = new Intent(this, AnimatorActivity.class);
+        startActivity(i);
+    }
 
     @OnClick(R.id.bt2)
     public void button2Click(){
@@ -65,6 +77,8 @@ public class MainActivity extends BaseActivity {
         initialView();
         initalListener();
         ButterKnife.bind(this);
+        mGestureDetector = new GestureDetector(this, new simpleGestureListener());
+        fl.setOnTouchListener(this);
     }
 
     private void initialView(){
@@ -153,5 +167,56 @@ public class MainActivity extends BaseActivity {
 
     public void onClick(View v){
         Toast.makeText(this,"Button 2 was Clicked", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public boolean onTouch(View v, MotionEvent event) {
+        return mGestureDetector.onTouchEvent(event);
+    }
+
+    private class simpleGestureListener extends GestureDetector.SimpleOnGestureListener{
+        @Override
+        public boolean onDown(MotionEvent e) {
+            toastShort("onDown");
+            return true;
+        }
+        @Override
+        public void onShowPress(MotionEvent e) {
+            toastShort("onShowPress");
+        }
+        @Override
+        public void onLongPress(MotionEvent e) {
+            toastShort("onLongPress");
+        }
+        @Override
+        public boolean onSingleTapUp(MotionEvent e) {
+            toastShort("onSingleTapUp");
+            return true;
+        }
+        @Override
+        public boolean onSingleTapConfirmed(MotionEvent e) {
+            toastShort("onSingleTapConfirmed");
+            return true;
+        }
+        @Override
+        public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX, float distanceY) {
+            toastShort("onScroll");
+            return true;
+        }
+        @Override
+        public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
+            toastShort("onFling");
+            return true;
+        }
+        @Override
+        public boolean onDoubleTap(MotionEvent e) {
+            toastShort("onDoubleTap");
+            return true;
+        }
+        @Override
+        public boolean onDoubleTapEvent(MotionEvent e) {
+            toastShort("onDoubleTapEvent");
+            return true;
+        }
     }
 }
