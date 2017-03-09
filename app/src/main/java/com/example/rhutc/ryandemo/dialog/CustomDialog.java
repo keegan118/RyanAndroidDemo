@@ -12,13 +12,13 @@ import butterknife.OnClick;
 
 public class CustomDialog extends Dialog {
 
+    private ICustomDialogEventListener listener;
+
     @OnClick(R.id.dialog_ok)
     public void onClick(){
         listener.onClickListener();
         dismiss();
     }
-
-    private ICustomDialogEventListener listener;
 
     public interface ICustomDialogEventListener {
         public void onClickListener();

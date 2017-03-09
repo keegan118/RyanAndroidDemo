@@ -130,7 +130,6 @@ public class DialogActivity extends BaseActivity {
                 msg.setData(bundle);
                 mHandler.sendMessage(msg);
                 progressDialog.cancel();
-
             }
         }).start();
     }

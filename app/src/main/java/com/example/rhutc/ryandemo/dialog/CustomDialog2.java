@@ -1,0 +1,58 @@
+package com.example.rhutc.ryandemo.dialog;
+
+import android.app.Dialog;
+import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
+import android.os.Message;
+import android.support.annotation.NonNull;
+import android.widget.RadioGroup;
+
+import com.example.rhutc.ryandemo.AnimatorActivity;
+import com.example.rhutc.ryandemo.MainActivity;
+import com.example.rhutc.ryandemo.R;
+import com.example.rhutc.ryandemo.ViewPagerActivity;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+
+public class CustomDialog2 extends Dialog {
+
+    private ICustomDialogEventListener2 listener;
+
+    @BindView(R.id.custom_dialog_rg)
+    RadioGroup rg;
+
+    RadioGroup radiogroup = (RadioGroup)findViewById(R.id.custom_dialog_rg);
+
+    @OnClick(R.id.select)
+    public void onClickSelectButton(){
+        listener.onClickOk(radiogroup.getCheckedRadioButtonId());
+        listener.onClickOk(rg.getCheckedRadioButtonId());
+        dismiss();
+    }
+
+    @OnClick(R.id.cancel)
+    public void onClickCancel(){
+        listener.onClickCancel();
+        dismiss();
+    }
+
+    public interface ICustomDialogEventListener2 {
+        public void onClickCancel();
+        public void onClickOk(int radioID);
+    }
+
+    public CustomDialog2(@NonNull Context context, ICustomDialogEventListener2 listener) {
+        super(context, R.style.dialog);
+        this.listener = listener;
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.custom_dialog2);
+        ButterKnife.bind(this);
+    }
+}

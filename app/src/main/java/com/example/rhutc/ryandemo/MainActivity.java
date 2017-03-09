@@ -1,6 +1,9 @@
 package com.example.rhutc.ryandemo;
 
+import android.content.Context;
 import android.content.Intent;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -16,11 +19,15 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.example.rhutc.ryandemo.bean.Book;
+import com.example.rhutc.ryandemo.dialog.CustomDialog;
+import com.example.rhutc.ryandemo.dialog.CustomDialog2;
 import com.example.rhutc.ryandemo.util.UtilLog;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+
+import static java.security.AccessController.getContext;
 
 public class MainActivity extends BaseActivity implements View.OnTouchListener {
 
@@ -33,6 +40,30 @@ public class MainActivity extends BaseActivity implements View.OnTouchListener {
 
     @BindView(R.id.main_fl)
     FrameLayout fl;
+
+    @OnClick(R.id.quiz4)
+    public void quiz4Click(){
+        CustomDialog2 dialog = new CustomDialog2(this, new CustomDialog2.ICustomDialogEventListener2() {
+            @Override
+            public void onClickCancel() {
+                toastShort("Cancel was selected");
+                // Do the same thing as button 1
+                bt1.callOnClick();
+            }
+            @Override
+            public void onClickOk(int radioID) {
+                toastShort("Ok was selected");
+                if (radioID == R.id.dialog_activity_rb){
+                    // Do the same thing as button 2
+                    button2Click();
+                } else if (radioID == R.id.list_view_activity_rb){
+                    // Do the same thing as button 3
+                    bt3.callOnClick();
+                }
+            }
+        });
+        dialog.show();
+    }
 
     @OnClick(R.id.animator_button)
     public void animatorClick(){
@@ -177,45 +208,45 @@ public class MainActivity extends BaseActivity implements View.OnTouchListener {
     private class simpleGestureListener extends GestureDetector.SimpleOnGestureListener{
         @Override
         public boolean onDown(MotionEvent e) {
-            toastShort("onDown");
+//            toastShort("onDown");
             return true;
         }
         @Override
         public void onShowPress(MotionEvent e) {
-            toastShort("onShowPress");
+//            toastShort("onShowPress");
         }
         @Override
         public void onLongPress(MotionEvent e) {
-            toastShort("onLongPress");
+//            toastShort("onLongPress");
         }
         @Override
         public boolean onSingleTapUp(MotionEvent e) {
-            toastShort("onSingleTapUp");
+//            toastShort("onSingleTapUp");
             return true;
         }
         @Override
         public boolean onSingleTapConfirmed(MotionEvent e) {
-            toastShort("onSingleTapConfirmed");
+//            toastShort("onSingleTapConfirmed");
             return true;
         }
         @Override
         public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX, float distanceY) {
-            toastShort("onScroll");
+//            toastShort("onScroll");
             return true;
         }
         @Override
         public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
-            toastShort("onFling");
+//            toastShort("onFling");
             return true;
         }
         @Override
         public boolean onDoubleTap(MotionEvent e) {
-            toastShort("onDoubleTap");
+//            toastShort("onDoubleTap");
             return true;
         }
         @Override
         public boolean onDoubleTapEvent(MotionEvent e) {
-            toastShort("onDoubleTapEvent");
+//            toastShort("onDoubleTapEvent");
             return true;
         }
     }
