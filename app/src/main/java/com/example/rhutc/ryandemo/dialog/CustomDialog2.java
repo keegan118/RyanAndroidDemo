@@ -28,7 +28,11 @@ public class CustomDialog2 extends Dialog {
 
     @OnClick(R.id.select)
     public void onClickSelectButton(){
-        listener.onClickOk(radiogroup.getCheckedRadioButtonId());
+
+        // NOT WORKING
+//        listener.onClickOk(radiogroup.getCheckedRadioButtonId());
+
+        // WORKING
         listener.onClickOk(rg.getCheckedRadioButtonId());
         dismiss();
     }
