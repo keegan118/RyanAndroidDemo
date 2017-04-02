@@ -283,6 +283,7 @@ public class MainActivity extends BaseActivity implements View.OnTouchListener {
         public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX, float distanceY) {
 //            toastShort("onScroll");
             return true;
+            //
         }
 
         @Override
