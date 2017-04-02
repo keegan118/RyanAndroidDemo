@@ -1,6 +1,4 @@
 package com.example.rhutc.ryandemo.fragment;
-
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;

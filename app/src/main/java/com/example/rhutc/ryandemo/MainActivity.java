@@ -213,7 +213,7 @@ public class MainActivity extends BaseActivity implements View.OnTouchListener {
         }
         @Override
         public void onShowPress(MotionEvent e) {
-//            toastShort("onShowPress");
+            toastShort("onShowPress");
         }
         @Override
         public void onLongPress(MotionEvent e) {

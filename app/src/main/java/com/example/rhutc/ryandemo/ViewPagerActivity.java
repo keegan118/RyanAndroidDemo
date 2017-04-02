@@ -19,8 +19,11 @@ public class ViewPagerActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_pager);
+
+        ////////////////////////////////////////////////////
         Intent i = getIntent();
         Bundle b = i.getExtras();
         String s = i.getStringExtra("key");
@@ -32,6 +35,7 @@ public class ViewPagerActivity extends AppCompatActivity {
         UtilLog.logD("ViewPagerActivity, number is: ", ""+number);
         UtilLog.logD("ViewPagerActivity, fakeNumber is: ", String.valueOf(fakeNumber));
         UtilLog.logD("ViewPagerActivity, Book Name:", book.getName());
+        ////////////////////////////////////////////////////
 
         initializeViewPager();
     }
