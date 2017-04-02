@@ -2,16 +2,11 @@ package com.example.rhutc.ryandemo.dialog;
 
 import android.app.Dialog;
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
-import android.os.Message;
 import android.support.annotation.NonNull;
 import android.widget.RadioGroup;
 
-import com.example.rhutc.ryandemo.AnimatorActivity;
-import com.example.rhutc.ryandemo.MainActivity;
 import com.example.rhutc.ryandemo.R;
-import com.example.rhutc.ryandemo.ViewPagerActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

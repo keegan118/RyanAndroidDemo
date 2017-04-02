@@ -29,14 +29,12 @@ import java.util.ArrayList;
 
 public class ListViewActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
 
-    private ListView listView;
-    private ArrayList<String> result;
+    private ArrayList<String> result = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_view);
-        result = new ArrayList<>();
         createFakeResult();
         initialView();
     }
@@ -54,10 +52,9 @@ public class ListViewActivity extends AppCompatActivity implements AdapterView.O
     }
 
     private void initialView() {
-        listView = (ListView) findViewById(R.id.list_view);
         View view = getLayoutInflater().inflate(R.layout.list_view_header, null);
-
         ViewPager vp = (ViewPager)view.findViewById(R.id.view_pager_2);
+
         ArrayList<Fragment> f = new ArrayList<>();
         f.add(new Fragment1());
         f.add(new Fragment2());
@@ -73,6 +70,7 @@ public class ListViewActivity extends AppCompatActivity implements AdapterView.O
 
         LinearLayout lvh = (LinearLayout) view.findViewById(R.id.list_view_header);
 
+        ListView listView = (ListView) findViewById(R.id.list_view);
         ListViewAdapter listViewAdapter = new ListViewAdapter(this, result);
         listView.addHeaderView(lvh);
 
